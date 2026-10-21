@@ -133,16 +133,10 @@ export default function Home() {
   const [form, setForm] = useState({ name: "", phone: "", service: "", message: "" });
   const t = copy[lang];
 
-  
-const serviceOptions = useMemo<string[]>(
-  () => [
-    ...t.services.map(([name]) => name),
-    t.passport,
-    t.urgent,
-  ],
-  [t]
-);
-
+  const serviceOptions = useMemo(
+    () => t.services.map(([name]) => name).concat([t.passport, t.urgent]),
+    [t]
+  );
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
