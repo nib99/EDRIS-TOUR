@@ -1,4 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Edris Tour and Travel">
-  <rect width="64" height="64" fill="#1B5E45"/>
-  <path fill="#F6F3EC" d="M13 17 H29 V22.5 H18.5 V29.25 H25 V34.75 H18.5 V41.5 H29 V47 H13 Z M33 17 H51 V22.5 H44.75 V47 H39.25 V22.5 H33 Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#071428"/>
+  <defs>
+    <mask id="moon">
+      <rect width="32" height="32" fill="black"/>
+      <circle cx="9.2" cy="8.6" r="5.1" fill="white"/>
+      <circle cx="11.4" cy="7.4" r="4.15" fill="black"/>
+    </mask>
+  </defs>
+  <rect width="32" height="32" fill="#E2B340" mask="url(#moon)"/>
+  <path fill="#F6F0DF" d="M4.8 16.2 15.2 14.2 20.4 8.6 22.2 9.8 18.2 15.2 26.6 14.4 28.4 16 26.6 17.6 18.2 16.8 22.2 22.4 20.4 23.6 15.2 18 8.2 19.6 6.6 18.2Z"/>
 </svg>
