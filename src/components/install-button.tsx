@@ -29,7 +29,7 @@ export function InstallButton() {
     <div className="relative">
       <Button
         variant="ghost"
-        className="h-11 px-2"
+        className="h-11 px-2 text-inherit"
         onClick={() => {
           if (promptEvent) {
             void promptEvent.prompt();

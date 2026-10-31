@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/brand-logo";
 import { Phone } from "lucide-react";
 import {
   CHECK_STATES,
@@ -138,6 +139,7 @@ export function AdminDesk({ onLogout, mode }: Props) {
       <div className="h-1 bg-forest" />
       <header className="border-b border-line">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3">
+          <BrandLogo className="size-12" alt="" />
           <div className="min-w-0">
             <p className="font-display text-xl text-ink">{t.admin.title}</p>
             <p className="truncate text-sm text-muted">{t.owner}</p>
