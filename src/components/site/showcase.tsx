@@ -82,30 +82,27 @@ export function Showcase() {
           <h1>{t.hero.title}</h1>
           <p className="hero-intro">{t.hero.subtitle}</p>
 
-          {/* Primary contact CTAs — professional WhatsApp + Call */}
+          {/* Compact contact CTAs — keep video visible */}
           <div className="hero-contact-actions">
             <a
               className="hero-btn hero-btn-wa"
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`}
               target="_blank"
               rel="noopener noreferrer"
+              title={`WhatsApp ${CALL_NUMBER}`}
+              aria-label={`${t.hero.whatsappCta} ${CALL_NUMBER}`}
             >
-              <span className="hero-btn-icon">
-                <WhatsAppIcon className="size-5" />
-              </span>
-              <span className="hero-btn-text">
-                <span className="hero-btn-label">{t.hero.whatsappCta}</span>
-                <span className="hero-btn-sub">+251 922 00 53 74</span>
-              </span>
+              <WhatsAppIcon className="size-4" />
+              <span>{t.hero.whatsappCta}</span>
             </a>
-            <a className="hero-btn hero-btn-call" href={`tel:${CALL_NUMBER}`}>
-              <span className="hero-btn-icon">
-                <Phone className="size-5" aria-hidden="true" />
-              </span>
-              <span className="hero-btn-text">
-                <span className="hero-btn-label">{t.hero.callCta}</span>
-                <span className="hero-btn-sub">+251 922 00 53 74</span>
-              </span>
+            <a
+              className="hero-btn hero-btn-call"
+              href={`tel:${CALL_NUMBER}`}
+              title={`Call ${CALL_NUMBER}`}
+              aria-label={`${t.hero.callCta} ${CALL_NUMBER}`}
+            >
+              <Phone className="size-4" aria-hidden="true" />
+              <span>{t.hero.callCta}</span>
             </a>
           </div>
 
