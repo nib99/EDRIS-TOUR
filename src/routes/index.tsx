@@ -7,6 +7,7 @@ import { Header } from "@/components/site/header";
 import { Journeys } from "@/components/site/journeys";
 import { Services } from "@/components/site/services";
 import { Showcase } from "@/components/site/showcase";
+import { FloatingContact } from "@/components/site/floating-contact";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -28,6 +29,7 @@ function Home() {
       <Services />
       <Enquire journeyName={journey.name} travelersHint={travelers} />
       <Footer />
+      <FloatingContact />
     </main>
   );
 }
