@@ -1395,6 +1395,7 @@
     transition-duration: .01ms !important;
   }
 }
+
 /* === Idris Tour updates: lang menu, hero contact, PWA, mobile === */
 
 .brand-logo {
@@ -1534,80 +1535,55 @@
   }
 }
 
-/* —— Hero professional WhatsApp + Call —— */
+/* —— Hero compact WhatsApp + Call (video stays visible) —— */
 .hero-contact-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin: 0 0 18px;
+  gap: 8px;
+  margin: 0 0 14px;
 }
 
 .hero-btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  border-radius: 16px;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 999px;
   text-decoration: none;
   color: #fff;
-  min-width: min(100%, 200px);
-  box-shadow: 0 10px 28px rgb(0 0 0 / 35%);
-  transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 28%);
+  transition: transform 0.15s, filter 0.15s, box-shadow 0.15s;
+  backdrop-filter: blur(6px);
 }
 
 .hero-btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.05);
-  box-shadow: 0 14px 32px rgb(0 0 0 / 40%);
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 32%);
 }
 
 .hero-btn:active {
   transform: translateY(0);
 }
 
-.hero-btn-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: rgb(255 255 255 / 18%);
-  flex-shrink: 0;
-}
-
-.hero-btn-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  line-height: 1.2;
-}
-
-.hero-btn-label {
-  font-weight: 700;
-  font-size: 15px;
-}
-
-.hero-btn-sub {
-  font-size: 12px;
-  opacity: 0.9;
-  font-weight: 500;
-}
-
 .hero-btn-wa {
-  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  background: rgb(37 211 102 / 92%);
 }
 
 .hero-btn-call {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  background: rgb(37 99 235 / 92%);
 }
 
 @media (max-width: 480px) {
   .hero-contact-actions {
-    flex-direction: column;
+    gap: 8px;
   }
   .hero-btn {
-    width: 100%;
+    padding: 8px 12px;
+    font-size: 12px;
   }
 }
 
