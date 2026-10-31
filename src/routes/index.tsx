@@ -16,7 +16,7 @@ function Home() {
   const journey = journeys.find((item) => item.id === journeyId) ?? journeys[0];
 
   return (
-    <main className="min-h-screen">
+    <main>
       <Header />
       <Showcase />
       <Journeys
