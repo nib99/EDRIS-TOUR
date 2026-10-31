@@ -9,361 +9,50 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PublicRouteImport } from './routes/_public'
-import { Route as AdminRouteImport } from './routes/admin'
-import { Route as PublicIndexRouteImport } from './routes/_public/index'
-import { Route as PublicContactRouteImport } from './routes/_public/contact'
-import { Route as PublicInquireRouteImport } from './routes/_public/inquire'
-import { Route as PublicServicesRouteImport } from './routes/_public/services'
-import { Route as PublicTrackRouteImport } from './routes/_public/track'
-import { Route as ApiInquiriesRouteImport } from './routes/api/inquiries'
-import { Route as ApiTrackRouteImport } from './routes/api/track'
-import { Route as ApiAdminInquiriesRouteImport } from './routes/api/admin/inquiries'
-import { Route as ApiAdminMetricsRouteImport } from './routes/api/admin/metrics'
-import { Route as ApiAdminSecretsRouteImport } from './routes/api/admin/secrets'
-import { Route as ApiAdminSessionRouteImport } from './routes/api/admin/session'
-import { Route as ApiAdminSetupRouteImport } from './routes/api/admin/setup'
-import { Route as ApiAdminInquiriesIdRouteImport } from './routes/api/admin/inquiries/$id'
+import { Route as IndexRouteImport } from './routes/index'
 
-const PublicRoute = PublicRouteImport.update({
-  id: '/_public',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PublicIndexRoute = PublicIndexRouteImport.update({
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => PublicRoute,
-} as any)
-const PublicContactRoute = PublicContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => PublicRoute,
-} as any)
-const PublicInquireRoute = PublicInquireRouteImport.update({
-  id: '/inquire',
-  path: '/inquire',
-  getParentRoute: () => PublicRoute,
-} as any)
-const PublicServicesRoute = PublicServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => PublicRoute,
-} as any)
-const PublicTrackRoute = PublicTrackRouteImport.update({
-  id: '/track',
-  path: '/track',
-  getParentRoute: () => PublicRoute,
-} as any)
-const ApiInquiriesRoute = ApiInquiriesRouteImport.update({
-  id: '/api/inquiries',
-  path: '/api/inquiries',
   getParentRoute: () => rootRouteImport,
-} as any)
-const ApiTrackRoute = ApiTrackRouteImport.update({
-  id: '/api/track',
-  path: '/api/track',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAdminInquiriesRoute = ApiAdminInquiriesRouteImport.update({
-  id: '/api/admin/inquiries',
-  path: '/api/admin/inquiries',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAdminMetricsRoute = ApiAdminMetricsRouteImport.update({
-  id: '/api/admin/metrics',
-  path: '/api/admin/metrics',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAdminSecretsRoute = ApiAdminSecretsRouteImport.update({
-  id: '/api/admin/secrets',
-  path: '/api/admin/secrets',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAdminSessionRoute = ApiAdminSessionRouteImport.update({
-  id: '/api/admin/session',
-  path: '/api/admin/session',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAdminSetupRoute = ApiAdminSetupRouteImport.update({
-  id: '/api/admin/setup',
-  path: '/api/admin/setup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAdminInquiriesIdRoute = ApiAdminInquiriesIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => ApiAdminInquiriesRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof PublicIndexRoute
-  '/admin': typeof AdminRoute
-  '/contact': typeof PublicContactRoute
-  '/inquire': typeof PublicInquireRoute
-  '/services': typeof PublicServicesRoute
-  '/track': typeof PublicTrackRoute
-  '/api/inquiries': typeof ApiInquiriesRoute
-  '/api/track': typeof ApiTrackRoute
-  '/api/admin/inquiries': typeof ApiAdminInquiriesRouteWithChildren
-  '/api/admin/metrics': typeof ApiAdminMetricsRoute
-  '/api/admin/secrets': typeof ApiAdminSecretsRoute
-  '/api/admin/session': typeof ApiAdminSessionRoute
-  '/api/admin/setup': typeof ApiAdminSetupRoute
-  '/api/admin/inquiries/$id': typeof ApiAdminInquiriesIdRoute
+  '/': typeof IndexRoute
 }
 export interface FileRoutesByTo {
-  '/admin': typeof AdminRoute
-  '/contact': typeof PublicContactRoute
-  '/inquire': typeof PublicInquireRoute
-  '/services': typeof PublicServicesRoute
-  '/track': typeof PublicTrackRoute
-  '/api/inquiries': typeof ApiInquiriesRoute
-  '/api/track': typeof ApiTrackRoute
-  '/': typeof PublicIndexRoute
-  '/api/admin/inquiries': typeof ApiAdminInquiriesRouteWithChildren
-  '/api/admin/metrics': typeof ApiAdminMetricsRoute
-  '/api/admin/secrets': typeof ApiAdminSecretsRoute
-  '/api/admin/session': typeof ApiAdminSessionRoute
-  '/api/admin/setup': typeof ApiAdminSetupRoute
-  '/api/admin/inquiries/$id': typeof ApiAdminInquiriesIdRoute
+  '/': typeof IndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/_public': typeof PublicRouteWithChildren
-  '/admin': typeof AdminRoute
-  '/_public/contact': typeof PublicContactRoute
-  '/_public/inquire': typeof PublicInquireRoute
-  '/_public/services': typeof PublicServicesRoute
-  '/_public/track': typeof PublicTrackRoute
-  '/api/inquiries': typeof ApiInquiriesRoute
-  '/api/track': typeof ApiTrackRoute
-  '/_public/': typeof PublicIndexRoute
-  '/api/admin/inquiries': typeof ApiAdminInquiriesRouteWithChildren
-  '/api/admin/metrics': typeof ApiAdminMetricsRoute
-  '/api/admin/secrets': typeof ApiAdminSecretsRoute
-  '/api/admin/session': typeof ApiAdminSessionRoute
-  '/api/admin/setup': typeof ApiAdminSetupRoute
-  '/api/admin/inquiries/$id': typeof ApiAdminInquiriesIdRoute
+  '/': typeof IndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/admin'
-    | '/contact'
-    | '/inquire'
-    | '/services'
-    | '/track'
-    | '/api/inquiries'
-    | '/api/track'
-    | '/api/admin/inquiries'
-    | '/api/admin/metrics'
-    | '/api/admin/secrets'
-    | '/api/admin/session'
-    | '/api/admin/setup'
-    | '/api/admin/inquiries/$id'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/admin'
-    | '/contact'
-    | '/inquire'
-    | '/services'
-    | '/track'
-    | '/api/inquiries'
-    | '/api/track'
-    | '/'
-    | '/api/admin/inquiries'
-    | '/api/admin/metrics'
-    | '/api/admin/secrets'
-    | '/api/admin/session'
-    | '/api/admin/setup'
-    | '/api/admin/inquiries/$id'
-  id:
-    | '__root__'
-    | '/_public'
-    | '/admin'
-    | '/_public/contact'
-    | '/_public/inquire'
-    | '/_public/services'
-    | '/_public/track'
-    | '/api/inquiries'
-    | '/api/track'
-    | '/_public/'
-    | '/api/admin/inquiries'
-    | '/api/admin/metrics'
-    | '/api/admin/secrets'
-    | '/api/admin/session'
-    | '/api/admin/setup'
-    | '/api/admin/inquiries/$id'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  PublicRoute: typeof PublicRouteWithChildren
-  AdminRoute: typeof AdminRoute
-  ApiInquiriesRoute: typeof ApiInquiriesRoute
-  ApiTrackRoute: typeof ApiTrackRoute
-  ApiAdminInquiriesRoute: typeof ApiAdminInquiriesRouteWithChildren
-  ApiAdminMetricsRoute: typeof ApiAdminMetricsRoute
-  ApiAdminSecretsRoute: typeof ApiAdminSecretsRoute
-  ApiAdminSessionRoute: typeof ApiAdminSessionRoute
-  ApiAdminSetupRoute: typeof ApiAdminSetupRoute
+  IndexRoute: typeof IndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_public': {
-      id: '/_public'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof PublicRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_public/': {
-      id: '/_public/'
+    '/': {
+      id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof PublicIndexRouteImport
-      parentRoute: typeof PublicRoute
-    }
-    '/_public/contact': {
-      id: '/_public/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof PublicContactRouteImport
-      parentRoute: typeof PublicRoute
-    }
-    '/_public/inquire': {
-      id: '/_public/inquire'
-      path: '/inquire'
-      fullPath: '/inquire'
-      preLoaderRoute: typeof PublicInquireRouteImport
-      parentRoute: typeof PublicRoute
-    }
-    '/_public/services': {
-      id: '/_public/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof PublicServicesRouteImport
-      parentRoute: typeof PublicRoute
-    }
-    '/_public/track': {
-      id: '/_public/track'
-      path: '/track'
-      fullPath: '/track'
-      preLoaderRoute: typeof PublicTrackRouteImport
-      parentRoute: typeof PublicRoute
-    }
-    '/api/inquiries': {
-      id: '/api/inquiries'
-      path: '/api/inquiries'
-      fullPath: '/api/inquiries'
-      preLoaderRoute: typeof ApiInquiriesRouteImport
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/api/track': {
-      id: '/api/track'
-      path: '/api/track'
-      fullPath: '/api/track'
-      preLoaderRoute: typeof ApiTrackRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/admin/inquiries': {
-      id: '/api/admin/inquiries'
-      path: '/api/admin/inquiries'
-      fullPath: '/api/admin/inquiries'
-      preLoaderRoute: typeof ApiAdminInquiriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/admin/metrics': {
-      id: '/api/admin/metrics'
-      path: '/api/admin/metrics'
-      fullPath: '/api/admin/metrics'
-      preLoaderRoute: typeof ApiAdminMetricsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/admin/secrets': {
-      id: '/api/admin/secrets'
-      path: '/api/admin/secrets'
-      fullPath: '/api/admin/secrets'
-      preLoaderRoute: typeof ApiAdminSecretsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/admin/session': {
-      id: '/api/admin/session'
-      path: '/api/admin/session'
-      fullPath: '/api/admin/session'
-      preLoaderRoute: typeof ApiAdminSessionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/admin/setup': {
-      id: '/api/admin/setup'
-      path: '/api/admin/setup'
-      fullPath: '/api/admin/setup'
-      preLoaderRoute: typeof ApiAdminSetupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/admin/inquiries/$id': {
-      id: '/api/admin/inquiries/$id'
-      path: '/$id'
-      fullPath: '/api/admin/inquiries/$id'
-      preLoaderRoute: typeof ApiAdminInquiriesIdRouteImport
-      parentRoute: typeof ApiAdminInquiriesRoute
     }
   }
 }
 
-interface PublicRouteChildren {
-  PublicContactRoute: typeof PublicContactRoute
-  PublicInquireRoute: typeof PublicInquireRoute
-  PublicServicesRoute: typeof PublicServicesRoute
-  PublicTrackRoute: typeof PublicTrackRoute
-  PublicIndexRoute: typeof PublicIndexRoute
-}
-
-const PublicRouteChildren: PublicRouteChildren = {
-  PublicContactRoute: PublicContactRoute,
-  PublicInquireRoute: PublicInquireRoute,
-  PublicServicesRoute: PublicServicesRoute,
-  PublicTrackRoute: PublicTrackRoute,
-  PublicIndexRoute: PublicIndexRoute,
-}
-
-const PublicRouteWithChildren =
-  PublicRoute._addFileChildren(PublicRouteChildren)
-
-interface ApiAdminInquiriesRouteChildren {
-  ApiAdminInquiriesIdRoute: typeof ApiAdminInquiriesIdRoute
-}
-
-const ApiAdminInquiriesRouteChildren: ApiAdminInquiriesRouteChildren = {
-  ApiAdminInquiriesIdRoute: ApiAdminInquiriesIdRoute,
-}
-
-const ApiAdminInquiriesRouteWithChildren =
-  ApiAdminInquiriesRoute._addFileChildren(ApiAdminInquiriesRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
-  PublicRoute: PublicRouteWithChildren,
-  AdminRoute: AdminRoute,
-  ApiInquiriesRoute: ApiInquiriesRoute,
-  ApiTrackRoute: ApiTrackRoute,
-  ApiAdminInquiriesRoute: ApiAdminInquiriesRouteWithChildren,
-  ApiAdminMetricsRoute: ApiAdminMetricsRoute,
-  ApiAdminSecretsRoute: ApiAdminSecretsRoute,
-  ApiAdminSessionRoute: ApiAdminSessionRoute,
-  ApiAdminSetupRoute: ApiAdminSetupRoute,
+  IndexRoute: IndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
