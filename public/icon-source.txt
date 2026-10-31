@@ -1,1 +1,0 @@
-The supplied Edris Tour & Travel logo is included as public/logo.jpg. PWA PNG icons are generated from that logo.
