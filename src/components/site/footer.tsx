@@ -1,22 +1,31 @@
-import { ArrowUpRight, Compass } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { useI18n } from "@/lib/i18n/context";
 
 export function Footer() {
+  const { t } = useI18n();
   return (
     <footer className="site-footer">
       <div className="footer-inner">
         <div>
-          <div className="footer-brand">Idris Tour &amp; Travel</div>
-          <p className="footer-tagline">Your Journey, Our Priority.</p>
-          <p className="footer-details">Bole, Addis Ababa · Umrah, flights, hotels, tours and visa assistance.</p>
+          <div className="footer-brand">
+            <img src="/logo.png" alt="" width={36} height={36} className="footer-logo" />
+            Idris Tour &amp; Travel
+          </div>
+          <p className="footer-tagline">{t.footer.tagline}</p>
+          <p className="footer-details">{t.footer.details}</p>
+          <p className="footer-phones">
+            {t.contact.phones.map((p) => (
+              <a key={p} href={`tel:${p.replace(/\s/g, "")}`}>
+                {p}
+              </a>
+            ))}
+          </p>
+          <p className="footer-thanks">{t.contact.thanks} 🙏 · Idris Mohammed</p>
         </div>
         <div className="footer-right">
-          <p>
-            The fares shown are planning figures. Confirm availability and final
-            prices with the travel desk before booking.
-          </p>
+          <p>{t.footer.disclaimer}</p>
           <a href="#film">
-            <Compass className="size-4" aria-hidden="true" />
-            Back to the beginning <ArrowUpRight className="size-3" aria-hidden="true" />
+            {t.footer.back} <ArrowUpRight className="size-3" aria-hidden="true" />
           </a>
         </div>
       </div>

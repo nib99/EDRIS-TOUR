@@ -3,34 +3,52 @@ import {
   BadgeCheck,
   Building2,
   ChevronDown,
+  FileText,
   Globe,
-  Landmark,
-  Luggage,
-  Moon,
   Plane,
+  Stethoscope,
+  Shield,
 } from "lucide-react";
-import { faqs, services } from "@/data/catalog";
+import { useI18n } from "@/lib/i18n/context";
 
-const icons = [Globe, Landmark, Moon, Plane, Building2, Luggage, BadgeCheck];
+const icons = [FileText, BadgeCheck, Shield, Stethoscope, Plane, Globe];
 
 export function Services() {
+  const { t } = useI18n();
+
   return (
     <section id="services" className="services-section" aria-labelledby="services-heading">
       <div className="section-inner">
         <div className="services-heading">
-          <div>
-            <p className="section-kicker">A travel desk, thoughtfully connected</p>
-            <h2 id="services-heading" className="services-title">
-              The details that make a journey work.
-            </h2>
-          </div>
-          <p className="services-intro">
-            From the first flight search to the hotel check-in, bring the moving
-            parts to one desk in Bole, Addis Ababa.
-          </p>
+          <p className="section-kicker">{t.servicesSection.kicker}</p>
+          <h2 id="services-heading">{t.servicesSection.title}</h2>
+          <p className="services-intro">{t.servicesSection.intro}</p>
         </div>
+
+        <div className="passport-card">
+          <h3>{t.passport.title}</h3>
+          <ul className="passport-types">
+            <li>
+              <strong>{t.passport.urgent}</strong>
+              <ul>
+                <li>{t.passport.urgent2}</li>
+                <li>{t.passport.urgent5}</li>
+              </ul>
+            </li>
+            <li>
+              <strong>{t.passport.normal}</strong>
+            </li>
+          </ul>
+          <p className="passport-req-label">{t.passport.required}</p>
+          <ul className="passport-docs">
+            {t.passport.docs.map((d) => (
+              <li key={d}>{d}</li>
+            ))}
+          </ul>
+        </div>
+
         <ul className="service-list">
-          {services.map((service, index) => {
+          {t.services.map((service, index) => {
             const Icon = icons[index] ?? Globe;
             return (
               <li key={service.title} className="service-item">
@@ -46,14 +64,11 @@ export function Services() {
 
         <div id="faq" className="faq-layout" aria-labelledby="faq-heading">
           <div className="faq-copy">
-            <p className="section-kicker">Before you set off</p>
-            <h2 id="faq-heading">A few clear answers.</h2>
-            <p>
-              Useful things to know before you start a plan with the travel desk.
-            </p>
+            <p className="section-kicker">FAQ</p>
+            <h2 id="faq-heading">{t.nav.faq}</h2>
           </div>
           <Accordion.Root type="single" collapsible className="faq-list">
-            {faqs.map((item, index) => (
+            {t.faq.map((item, index) => (
               <Accordion.Item key={item.q} value={`faq-${index}`} className="faq-item">
                 <Accordion.Header>
                   <Accordion.Trigger className="faq-trigger">
@@ -61,9 +76,7 @@ export function Services() {
                     <ChevronDown className="size-4" aria-hidden="true" />
                   </Accordion.Trigger>
                 </Accordion.Header>
-                <Accordion.Content className="faq-answer">
-                  {item.a}
-                </Accordion.Content>
+                <Accordion.Content className="faq-answer">{item.a}</Accordion.Content>
               </Accordion.Item>
             ))}
           </Accordion.Root>
